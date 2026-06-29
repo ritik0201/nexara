@@ -15,7 +15,7 @@ const links = [
   { name: "About", href: "/about" },
   { name: "Industries", href: "/industries" },
   { name: "Languages", href: "/languages" },
-  { name: "Testimonials", href: "/testimonials" },
+  { name: "Careers", href: "/career" },
   { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ];

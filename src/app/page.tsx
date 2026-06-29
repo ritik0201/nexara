@@ -25,10 +25,10 @@ import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-const heroBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuDVqCMEiNSdhgJxD328OzlrFCcSXceBJbIiC2vtXxa7tG_PK-KZI_rXu5aIIrbdftxnub6P-l21Bo3TakNXVPMLPQH2hbmNE1kFEUMA0voL6OCRiLkwQskxiApi4xaJcw-4S03J1wDJS7q1R2sSjg-tEmtS03fnjGiNy14AuDxHoweRKIqnbAv7InO-1aS3mtttQfq8unuDKDDdybVYQbph7VcXQICw24001CIYLzOzuMID7ECVXrcG5eQBZnpFMBnD3GC6wj5KYKs";
-const interpreterPortrait = "https://lh3.googleusercontent.com/aida-public/AB6AXuDEhMBDHkQe5KQV93TR3XFL4yMSpiWM-EU-ScHv62Ak_Mic1KUUlOJr7YtmVpuR4SNaVOSJRPCpf-RgXxAtRyi2h6kZORTk2iThg-7QYJ_emdmTzkZyBstOoZQQQwTGIYO7h8_kmKZGl9x9dHmHcGAGs-YJUtt8GrnbJzMxiP_uHTCX_1UCbuWlbBoVpOJKOl3kV4_YRoWWhdlCuFenuc_U5AmLgDT5T_6ZSfl-E2H36BEky9b_NUplZVYQydLuQSaiJrmZGaMoLZc";
-const boardroomBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuDBdrCVY_ShRQ0BmcAhP0I2YNSCIz8okanghfmjv4dN9NXNF8urTsGQqa-pIbEsBanxguBSBSf91LCkdAaCswy91i6TusW01Kb_KE2V8S3jwWqI1MPVSwTnWrBW1XAP8FEd3yJrZ1y5OjWrFvG5zF1lgtW3lEPhRHwrvFNUljeONWna42Ke4yyAhL5z7I2FOKz4wG7IxH-orubE4q3gmkjzz79UrjI20MxCEK8v4byX00VjAQPp2G8T641TTqtELwjBqN8B3o4daBE";
-const summitBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuDznpMUESkRD_n9xYZOw8xU8A6WoNt_3n-IygBQedyGsU0xYgPFEe7Rem0w_yxDl-S9b60KR7w9_AgCiRQkB9kyM4kJslw2tttRQoCYPmThRGR-0wuVaG4IQaDCY-X96d-WoHjBmrE74Bo_J2OfO23A-CWd-VUNsdKrGBauvb2ECCPqm10gplRSq4YLAslrNgwcmP7OVM56C3hFvT7auViBE8AeQG3bVoMNNeY69Gba3slwEVgqy34wW3BvB8OVXLmq-pXJkT-gmFo";
+const heroBg = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80";
+const interpreterPortrait = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80";
+const boardroomBg = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80";
+const summitBg = "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80";
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
@@ -99,7 +99,7 @@ export default function Home() {
               "@type": "ContactPoint",
               "telephone": "+91-11-4050-9000",
               "contactType": "customer service",
-              "email": "concierge@nexara.in"
+              "email": "ritik@tuition-ed.com"
             }
           })
         }}
@@ -152,21 +152,20 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Floating Stat Cards */}
         <motion.div
           variants={statCascade}
           initial="hidden"
           animate="show"
-          className="w-full z-20 flex flex-wrap justify-center gap-6 px-6 mt-12 md:mt-0 md:absolute md:bottom-8 lg:bottom-12 left-0 right-0"
+          className="w-full z-20 flex flex-wrap justify-center items-stretch gap-6 px-6 mt-12 md:mt-0 md:absolute md:bottom-8 lg:bottom-12 left-0 right-0"
         >
-          <motion.div variants={statItem}>
-            <StatCard number="500+" label="Events Delivered" />
+          <motion.div variants={statItem} className="w-full max-w-[280px] sm:w-64 flex">
+            <StatCard number="500+" label="Events Delivered" className="w-full" />
           </motion.div>
-          <motion.div variants={statItem}>
-            <StatCard number="40+" label="Languages" />
+          <motion.div variants={statItem} className="w-full max-w-[280px] sm:w-64 flex">
+            <StatCard number="40+" label="Languages" className="w-full" />
           </motion.div>
-          <motion.div variants={statItem}>
-            <StatCard number="PAN-INDIA" label="Coverage" />
+          <motion.div variants={statItem} className="w-full max-w-[280px] sm:w-64 flex">
+            <StatCard number="PAN-INDIA" label="Coverage" className="w-full" />
           </motion.div>
         </motion.div>
       </section>

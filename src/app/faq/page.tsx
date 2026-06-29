@@ -9,7 +9,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 import { faqCategories } from "@/content/faq";
 
-const faqHeroBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuCbB7Zrb8jAeSW2e8yO519INLNnfnRdkVfocryk0sEdBVTz-L2iARVKC_fAUweLhp4w7Us1mgjxFKvRdISia7MjX-tLiCK1HXTgOfwLilIS4XNGhNe6qJQWCUZIzQGAmoLt6Xp4QAsGlem61epZvcY1RmAfgMJ6LG3Mx1-MmLzLGrBHH04_e4BzkbXIjqlLS2VpeQmD5Hjttnt-jTJqN-5dNMMxDNyrBlgggtUzRbrPLTTPGqVLabAeGlBWwZY8-kq0bvcPXoKwFt4";
+const faqHeroBg = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80";
 
 export default function FAQPage() {
   return (

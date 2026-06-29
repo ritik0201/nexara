@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server";
 import * as z from "zod";
 
-// Server-side Zod validation schema
-const contactSchema = z.object({
+// Server-side validation schema for Careers
+const careerSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  organization: z.string().min(2, "Organization name is required"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
-  eventType: z.string().min(1, "Please select an event type"),
-  eventDate: z.string().min(1, "Event date is required"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  nativeLanguage: z.string().min(2, "Native language details required"),
+  otherLanguages: z.string().min(2, "Fluent languages details required"),
+  specialization: z.string().min(1, "Please select a primary specialization"),
+  experience: z.string().min(1, "Years of experience required"),
+  resumeLink: z.string().url("Please provide a valid resume URL (Google Drive, LinkedIn, etc.)"),
+  message: z.string().min(10, "Cover letter must be at least 10 characters"),
 });
 
 export async function POST(request: Request) {
@@ -17,7 +19,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     
     // Validate request body
-    const result = contactSchema.safeParse(body);
+    const result = careerSchema.safeParse(body);
     if (!result.success) {
       return NextResponse.json(
         { error: "Validation failed", details: result.error.format() },
@@ -25,21 +27,23 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, organization, email, phone, eventType, eventDate, message } = result.data;
-    const appsScriptUrl = process.env.CONTACT_APPS_SCRIPT_URL;
+    const { name, email, phone, nativeLanguage, otherLanguages, specialization, experience, resumeLink, message } = result.data;
+    const appsScriptUrl = process.env.CAREER_APPS_SCRIPT_URL;
 
 
 
     if (appsScriptUrl) {
-      console.log(`Forwarding to Google Sheet Contact Script: ${appsScriptUrl}`);
+      console.log(`Forwarding to Google Sheet Career Script: ${appsScriptUrl}`);
       const payload = {
-        formType: "contact",
+        formType: "career",
         name,
-        organization,
         email,
         phone,
-        eventType,
-        eventDate,
+        nativeLanguage,
+        otherLanguages,
+        specialization,
+        experience,
+        resumeLink,
         message
       };
 
@@ -61,21 +65,20 @@ export async function POST(request: Request) {
 
       if (!response.ok || (resJson && resJson.result === "error")) {
         return NextResponse.json(
-          { error: resJson?.error || "Failed to save inquiry to spreadsheet." },
+          { error: resJson?.error || "Failed to save application to spreadsheet." },
           { status: 500 }
         );
       }
     } else {
-      console.warn("CONTACT_APPS_SCRIPT_URL is not set. Data logged to server console only.");
+      console.warn("CAREER_APPS_SCRIPT_URL is not set. Data logged to server console only.");
     }
 
-    // Return a success response
     return NextResponse.json(
-      { message: `Thank you, ${name}. Your inquiry for a ${eventType} has been successfully received. A Nexara specialist will reach out within 2 hours.` },
+      { message: `Thank you, ${name}. Your application has been successfully received. We will contact you soon after reviewing your credentials.` },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error in contact API route:", error);
+    console.error("Error in career API route:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

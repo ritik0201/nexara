@@ -19,8 +19,8 @@ import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 import { industries } from "@/content/industries";
 
-const industriesHeroBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuDcBRqqNdGwrO9r3e0jMkhYR-g-AA3-afTvx8JhQKLIBmuwG97ZVlLcKoQ3VvJzPceGq2YLCjq3DeZZFM-bU65L76rZJFLbY65Ehc5fMY7aYOY1zj82fLEv8FF1UJMnYQHH8j-5v88KIoNzRyH_T1sqfoBejlWCclWrcZptwAV5h-A3KjiuDlL4ZlOZv9Zp2rguQafkFuJUmtxrmPY08n5lik3HwwSbwJqn7u8PWCJgcar8h-D7Cmx8vBxoBnA-6iF4K5vjUkAZinc";
-const caseStudyBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuBtKFLuMX3h7HVwHIRWW27ykBHNZbEvA5Y5xlED6SlbsERkidF_2MXz0n7S80M5yY6LCR9CWqYvTsJksRLvpj2O2Motyhww5iUv2q_i2M3vVtsjZhUG57qBG0D4EP4shugX9B5jhjinhKXQVe_0Co25B9IG0r_mhsPBIhlSmvpTrwMgXRIkrxg8n5HOSqgi5vaORR9pN8pjezqncB4osUXoheXlagyuAjRo-yM0ZPmltcKWfApyhqqmB0fARP3L_qsMUBJ-SF33Tck";
+const industriesHeroBg = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80";
+const caseStudyBg = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80";
 
 const iconMap: Record<string, React.ComponentType<any>> = {
   Briefcase: Briefcase,

@@ -9,7 +9,7 @@ import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 import { languageCategories } from "@/content/languages";
 
-const languagesHeroBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuBqfGrB31OSLj_Fsp0mBIlK8gxpfjJ_nY7M-Km15nbNoWBaKgwMpqgKi0BCtKMfVobKKLPBoFKo3TmZdcjG1CVw4nAJzhg_oyyfCccYozO4aR1FQKEhLwDCxdspMy4eHeIe9jkpN1iGXr8TQA5gIejON95nxnW6goT968N4gkqsnhSS3EfSz92-oeeJvbk2wXhnaE2ITWFNL27XmpYOpwFkENIitq-tXNDzTlDVacRw0NjlblNrgAjkPdf0jF7G9kwTlt0FsUWBvdw";
+const languagesHeroBg = "https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?auto=format&fit=crop&w=1920&q=80";
 
 export default function LanguagesPage() {
   return (

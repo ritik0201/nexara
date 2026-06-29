@@ -20,7 +20,7 @@ import Card from "@/components/ui/Card";
 import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 
-const contactHeroBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuCtfyzhi8shfP9UkZS3eYcWmaWj__nlzeaUMJrZnkrSG5okl4nitXic0hGu9FBKPLkA2RsVyYZ3E4QhEOnitMB3HHhOhciMOQfygszgxjHAWM6jiT_2Ssq4neMLVAolOkcgrHjeMJVuAaHTZxvQx3yFeSgeLHMTFk_I_hp0Zhb3fUaUijoNjAjKgn-LCZdy8tBp39fbsgLhXOZABsb3yKSt0BORH0L2iRt8PQcx68EBrpSiy_1AiCl0kVw9yOSTowrxOJY9Z3GlSvU";
+const contactHeroBg = "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1920&q=80";
 
 // Validation schema
 const contactSchema = z.object({
@@ -267,7 +267,7 @@ export default function ContactPage() {
                     <h4 className="font-body font-semibold text-xs text-gold uppercase tracking-widest">
                       Email Inquiry
                     </h4>
-                    <p className="font-body text-base text-white mt-1">concierge@nexara.in</p>
+                    <p className="font-body text-base text-white mt-1">ritik@tuition-ed.com</p>
                   </div>
                 </div>
 

@@ -37,8 +37,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/testimonials" className="hover:text-gold transition-colors">
-                Testimonials
+              <Link href="/career" className="hover:text-gold transition-colors">
+                Careers
               </Link>
             </li>
             <li>
@@ -90,8 +90,8 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-gold shrink-0" />
-              <a href="mailto:concierge@nexara.in" className="hover:text-gold transition-colors">
-                concierge@nexara.in
+              <a href="mailto:ritik@tuition-ed.com" className="hover:text-gold transition-colors">
+                ritik@tuition-ed.com
               </a>
             </li>
             <li className="flex items-center gap-3">

@@ -19,7 +19,7 @@ export default function StatCard({
   return (
     <div
       className={cn(
-        "glass-card p-6 md:p-8 w-full md:w-64 rounded-xl text-center shadow-2xl relative overflow-hidden transition-all duration-300",
+        "glass-card p-6 md:p-8 w-full h-full rounded-xl text-center shadow-2xl relative overflow-hidden transition-all duration-300 flex flex-col justify-center",
         glow && "hover:border-gold/50 hover:shadow-[0_20px_40px_-15px_rgba(212,175,55,0.18)]",
         className
       )}

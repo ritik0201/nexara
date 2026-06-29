@@ -10,10 +10,10 @@ import Button from "@/components/ui/Button";
 import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 
-const servicesHeroBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuCniMON0Txdc0FDWCz5RLOd_3iNe5q2Hrba7b2_pzK_-BMyia0JtEwG8WxQmvv_ZYp11mbg0qLMMWqlvtEB-fcFSASA9nxTRXXeusNSaiDCuQ-8JWYZYyMoHLqDjjdfP_4IrR-9BoeBuWSDr3TEIVAOPuvkgg9vvSrNqpZOp8BPeGLxUT-U0ESoUOBGNE-9bx2n1S7wKODztUB3DMJPqsFJmKHZInybOXBJgGoSgq2sGjcC04MVT9apPHtqt2BYMVFT8TmfC9_4qmM";
-const translationImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuB92oGyct-R7U-dAyF73ak66A_Fe80bgLJcwA9mGmfNbZ1dpSknLLXl-CJ6p2o_VNSkpiiwivPa_cawMNRS8ESwgKaX17kQfkpmynqFZN-4tO-YjHxGKu7MVCcg6mGOZXIttjCUgX_AK7kQqCrhF1uTclvTEZz47LBEXvsYSUhRxMuTm6ANoi4Vz34NfGn-5HbNjXG-mVIUow9HNu0yCMjPLc8MjT3kUbRWGO-gMHHrtRqFMsCF4XdzlFeeS294yQ1eLotbGcbjnxY";
-const interpretationImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuBpXLTlkpeE14P-RZn53v6CREr-M9vJKeUAUVYfVWENqW3fcguAO2B8R32vGXnnlmRHN7IKurcLm9Ns4B3AGUl6CGw88I3f0WK6h88ImKcMGI_v6i5MShDlv5Rq3-8uhcf0RZRc3a_MPwl43e8nOQsItTpFxcr6xnDrsdBTX8p7jPxix8MTSYUlH7N-712TdqVYSYhwRhLrDGFfGW6bp-eAWbELvjp3HhqYnU7vUDbomiZl8x8alpZYFK2CNn3VrcU8cXXZJldKYr4";
-const trainingImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuBAePd1yH9dncziD8rkbqI2Z6NreqdH9nAdnewHS1e0Sow50s6wvmEPiNp_LHiLzdO9L9ilN-26Wp9Frl9E7h0mrBb3pnNQbpX5wIb3-XivVY_xlr8Q-xZMJD1KFAqjjldyGCismB4p2oaFU2_R1s8U6voWvmEEpuPXySvx5LfuAKspIVZ4zs0BMue-ylmdsLHXs_nPQXwg-K5UyCqYfvGoVLURQh1EpYX6rdbo0E0zc-eTUU7-rDTj3Qj4U7528ODAZ6xfeWZq9Cw";
+const servicesHeroBg = "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1920&q=80";
+const translationImage = "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80";
+const interpretationImage = "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80";
+const trainingImage = "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80";
 
 export default function ServicesPage() {
   return (

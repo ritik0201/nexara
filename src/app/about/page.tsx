@@ -10,10 +10,10 @@ import Button from "@/components/ui/Button";
 import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 
-const aboutHeroBg = "https://lh3.googleusercontent.com/aida-public/AB6AXuDmnc_X0Wdd73z-GF4DKkCeKnRhmwQV9uhObUlIl6bewqmzHHGBHmJ7gBglAOI0HmwhjUTz7N26Cc73k2fXLbaZctycQtGnPS4BkMTmOg9UPUGSsWGWYw9UPO03Ae-LVgXbQAXG7zGBArGtjVaC5ELZ1LeVNkiYkH_QSdsH79jEH9En4S5KQgoNH5SZQ_V6joiAYvIzRaGbwB6LR6YfQ5T11vFoQWa9BrI-0erZLzPJZgzL_iXjQeOXpxP_HkY660a16gNygREScJ0";
-const teamVolkov = "https://lh3.googleusercontent.com/aida-public/AB6AXuBZNQcAydk_GWdjpIGkZentHJsq89v6ylJDc2DEC9hTygwKqRdOJ2aXAnzfXDcLNtMc5w4S9Kbid2rSpD7VBENpnhxG_J9Tm_1VXdflZzzAFDj8Iw7aBjRfC05W_tPintWOKlLcQAQoOv-v4EwpmtDsSkjzu-C_jVA3ah3jEe_xCTyy6IvnPJ1AWyayn8TIgcrDsHQqS2sLRRQ6GrZs3iaKjZCJjFGH3v9WFt3flY9ZMIbWWj5RQtJXN4lcKag3Y5heAYnFufBtqH4";
-const teamThorne = "https://lh3.googleusercontent.com/aida-public/AB6AXuDNP4clgLwZl1d_9UJc4jF6ejANSZIA7Q9WYll7vprDcNz0qEURrL669s7eZaBGlvfeP0O8eMWAxO0h1ZZLDJ5UV3VrCVc8XrFKxszm23OPBhx13W30gVwONHzUBA3rL2U65ldwtohTG7iyntbgda6csB9cVZmMwl3fSVQNs6mU67RBBs7eEux5PS2mbBrfUJQnQD19nL1b8veRuinTPVYB-YRTd_k-i0m2x7xUOQnRF4rTVLStO7mV12dnCTCYSSIOe7UE-H-ci3Y";
-const teamChen = "https://lh3.googleusercontent.com/aida-public/AB6AXuBDCHoQSFHvw8-P_DPLADei7YeaBpG_K7ic8yZt_j24m-nCxu7f1xNpn2dDX4qDDENWt01EdaKIpdftNp7Py8DLuw-AhqruAeH9pnt2NqNg3Wg0g4BB1m6JUTuVz8JR6YxCGQwP0JGgTVJ79X06N_kvOVs442fwNgzfj2szRnxT6HIWIlOgLFHnUXl_AdvxaIQgX-1r4VeuElKZjAC1nDxGHc5OZSKrYfEeEzafbjO8eGJVwXsAciBtxKEkRFx7M0fuCW4liYq4seU";
+const aboutHeroBg = "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1920&q=80";
+const teamVolkov = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80";
+const teamThorne = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&h=400&q=80";
+const teamChen = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80";
 
 export default function AboutPage() {
   return (
@@ -231,7 +231,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-24 px-6 md:px-10 lg:px-20 max-w-container-max-width mx-auto">
         <FadeIn direction="up" duration={0.8}>
-          <div className="bg-primary-container p-12 md:p-24 rounded-[4px] flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden">
+          <div className="gold-gradient-bg p-12 md:p-24 rounded-[4px] flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden">
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(circle_at_center,#000_1px,transparent_1px)] bg-[size:24px_24px]" />
             <div className="relative z-10 max-w-2xl text-center lg:text-left">
               <h2 className="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-black mb-4 tracking-tight leading-tight">
