@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { Check } from "lucide-react";
+import { Globe, Headset, Presentation, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import PageHero from "@/components/layout/PageHero";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Divider from "@/components/ui/Divider";
@@ -11,9 +11,6 @@ import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 
 const servicesHeroBg = "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1920&q=80";
-const translationImage = "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80";
-const interpretationImage = "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80";
-const trainingImage = "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80";
 
 export default function ServicesPage() {
   return (
@@ -21,169 +18,141 @@ export default function ServicesPage() {
       {/* Hero Header */}
       <PageHero
         backgroundImage={servicesHeroBg}
-        eyebrow="What We Offer"
-        heading="Language & Training Solutions for Global Events"
-        subtext="Providing bespoke linguistic solutions for elite summits, multinational corporations, and diplomatic missions."
+        eyebrow="Our Solutions"
+        heading="Linguistic & Training Solutions for Global Leadership"
+        subtext="Bespoke communication frameworks built to facilitate diplomacy, support complex global trade, and empower C-suite capability."
         compact
       />
 
-      {/* Service 1: Translation */}
+      {/* Services Portfolio Section */}
       <section className="py-24 md:py-32 px-6 md:px-10 lg:px-20 max-w-container-max-width mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-6 space-y-6">
-            <SectionLabel eyebrow="01 &mdash; Translation" />
-            <h2 className="font-display font-semibold text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.2] text-white tracking-tight">
-              Precision Translation for Every Document, Every Language
-            </h2>
-            <p className="font-body text-sm md:text-base text-muted leading-relaxed">
-              Our linguistic experts ensure your message transcends borders with absolute fidelity. We specialize in high-stakes documentation where every nuance matters.
-            </p>
-            
-            <ul className="space-y-3 pt-4">
-              {[
-                "Certified Multi-Stage Review",
-                "Domain-Specific Terminology Management",
-                "Secure Confidential Data Handling"
-              ].map((bullet) => (
-                <li key={bullet} className="flex items-center gap-3 font-body text-sm text-white">
-                  <span className="w-3 h-[1px] bg-gold shrink-0" />
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-wrap gap-2 pt-6">
-              {["Legal Documents", "Technical Manuals", "Financial Reports"].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-1.5 border border-gold/20 rounded-full font-body text-[10px] text-gold uppercase tracking-wider"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <FadeIn direction="right" duration={0.6}>
-              <div className="border border-goldMuted p-4 bg-[#141414] hover:border-gold/30 transition-colors duration-300">
-                <div className="relative w-full max-w-[450px] aspect-[3/4]">
-                  <Image
-                    src={translationImage}
-                    alt="Sleek dark wood desk with notebook, pen and laptop"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <SectionLabel eyebrow="Service Pillars" />
+          <h2 className="font-display font-semibold text-[clamp(2rem,4vw,3.25rem)] leading-[1.2] text-white tracking-tight mt-2">
+            The Three Pillars of Nexara
+          </h2>
+          <p className="font-body text-sm md:text-base text-muted mt-4 leading-relaxed">
+            From high-fidelity legal document translations to simultaneous interpretation at G20-level summits and statutory corporate compliance trainings, Nexara serves as your single point of contact for global standard delivery.
+          </p>
         </div>
+
+        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch pt-4">
+          {/* Pillar 1: Translation */}
+          <FadeIn direction="up" duration={0.6} className="h-full">
+            <div className="h-full bg-surface border border-gold/15 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-gold/40 hover:shadow-[0_20px_40px_-20px_rgba(212,175,55,0.12)] transition-all duration-300" data-cursor-text="TRANSLATE">
+              <div>
+                <div className="mb-8 text-gold">
+                  <Globe className="w-10 h-10 stroke-[1.25]" />
+                </div>
+                <h3 className="font-display font-medium text-xl md:text-2xl text-white mb-4">
+                  Document Translation
+                </h3>
+                <p className="font-body text-sm text-muted leading-relaxed mb-6">
+                  Certified document localization and multi-stage translation for high-stakes corporate, legal, financial, and medical documents. We manage strict sector-specific terminology with absolute accuracy.
+                </p>
+                <ul className="space-y-2 mb-8 font-body text-xs text-muted/80">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    Certified Multi-Stage Review
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    Custom Terminology Glossaries
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    Secure Cryptographic Data Vaults
+                  </li>
+                </ul>
+              </div>
+              <Button variant="secondary" href="/contact" className="w-full justify-center">
+                Get Translation Quote
+              </Button>
+            </div>
+          </FadeIn>
+
+          {/* Pillar 2: Interpretation */}
+          <FadeIn direction="up" duration={0.6} className="h-full">
+            <div className="h-full bg-surface border border-gold/30 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-gold hover:shadow-[0_20px_40px_-15px_rgba(212,175,55,0.15)] transition-all duration-300 relative z-10 lg:-translate-y-4" data-cursor-text="INTERPRET">
+              <div>
+                <div className="mb-8 text-gold">
+                  <Headset className="w-11 h-11 stroke-[1.25]" />
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2.5 py-0.5 bg-gold/10 text-gold border border-gold/20 text-[9px] uppercase tracking-wider rounded">Dedicated Hub</span>
+                </div>
+                <h3 className="font-display font-medium text-2xl text-white mb-4">
+                  Interpretation Services
+                </h3>
+                <p className="font-body text-sm text-muted leading-relaxed mb-6">
+                  Elite simultaneous, consecutive, and remote (RSI) interpretation for international summits, state banquets, bilateral talks, expo forums, and corporate arbitration. Vetted conference interpreters.
+                </p>
+                <ul className="space-y-2 mb-8 font-body text-xs text-muted/80">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    Simultaneous & Consecutive
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    ISO-Standard Equipment Provided
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    Bharat Global Expo Case Study
+                  </li>
+                </ul>
+              </div>
+              <Button variant="primary" href="/services/interpretation" className="w-full justify-center">
+                Explore Interpretation <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </FadeIn>
+
+          {/* Pillar 3: Corporate Training */}
+          <FadeIn direction="up" duration={0.6} className="h-full">
+            <div className="h-full bg-surface border border-gold/15 rounded-3xl p-8 md:p-10 flex flex-col justify-between hover:border-gold/40 hover:shadow-[0_20px_40px_-20px_rgba(212,175,55,0.12)] transition-all duration-300" data-cursor-text="TRAIN">
+              <div>
+                <div className="mb-8 text-gold">
+                  <Presentation className="w-10 h-10 stroke-[1.25]" />
+                </div>
+                <h3 className="font-display font-medium text-xl md:text-2xl text-white mb-4">
+                  Corporate Training
+                </h3>
+                <p className="font-body text-sm text-muted leading-relaxed mb-6">
+                  Statutory compliance programs (POSH), mid/senior executive leadership workshops, cross-cultural training, and foreign language instruction for outbound business teams.
+                </p>
+                <ul className="space-y-2 mb-8 font-body text-xs text-muted/80">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    Legally-Compliant POSH Seminars
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    Cross-Cultural Strategy & Languages
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                    Official Certificate & Workbook Bundles
+                  </li>
+                </ul>
+              </div>
+              <Button variant="secondary" href="/services/corporate-training" className="w-full justify-center">
+                Explore Corporate Training <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </FadeIn>
+        </StaggerContainer>
       </section>
 
-      <Divider width="sm" />
-
-      {/* Service 2: Interpretation */}
-      <section className="py-24 md:py-32 px-6 md:px-10 lg:px-20 max-w-container-max-width mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Image Left */}
-          <div className="lg:col-span-6 flex justify-center lg:justify-start order-2 lg:order-1">
-            <FadeIn direction="left" duration={0.6}>
-              <div className="border border-goldMuted p-4 bg-[#141414] hover:border-gold/30 transition-colors duration-300">
-                <div className="relative w-full max-w-[450px] aspect-[3/4]">
-                  <Image
-                    src={interpretationImage}
-                    alt="Linguist simultaneous interpreter working in soundproof glass booth"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-
-          {/* Text Right */}
-          <div className="lg:col-span-6 space-y-6 order-1 lg:order-2 lg:pl-12">
-            <SectionLabel eyebrow="02 &mdash; Interpretation" />
-            <h2 className="font-display font-semibold text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.2] text-white tracking-tight">
-              Real-Time Interpretation for High-Stakes Conversations
-            </h2>
-            <p className="font-body text-sm md:text-base text-muted leading-relaxed">
-              Facilitating seamless dialogue across cultures. Our simultaneous and consecutive interpreters operate at the highest levels of global diplomacy and corporate leadership.
-            </p>
-
-            <div className="flex flex-wrap gap-2 pt-6">
-              {["International Summits", "Diplomatic Meetings", "Legal Proceedings"].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-1.5 border border-gold/20 rounded-full font-body text-[10px] text-gold uppercase tracking-wider"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Divider width="sm" />
-
-      {/* Service 3: Corporate Training */}
-      <section className="py-24 md:py-32 px-6 md:px-10 lg:px-20 max-w-container-max-width mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Text Left */}
-          <div className="lg:col-span-6 space-y-6">
-            <SectionLabel eyebrow="03 &mdash; Corporate Training" />
-            <h2 className="font-display font-semibold text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.2] text-white tracking-tight">
-              Cross-Cultural &amp; Communication Training for Global Teams
-            </h2>
-            <p className="font-body text-sm md:text-base text-muted leading-relaxed">
-              Empowering your workforce to navigate the complexities of international etiquette and linguistic diversity with confidence and respect.
-            </p>
-
-            <div className="flex flex-wrap gap-2 pt-6">
-              {["Diplomatic Protocol Training", "Executive Coaching", "Cultural Fluency"].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-1.5 border border-gold/20 rounded-full font-body text-[10px] text-gold uppercase tracking-wider"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Image Right */}
-          <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <FadeIn direction="right" duration={0.6}>
-              <div className="border border-goldMuted p-4 bg-[#141414] hover:border-gold/30 transition-colors duration-300">
-                <div className="relative w-full max-w-[450px] aspect-[3/4]">
-                  <Image
-                    src={trainingImage}
-                    alt="Corporate workshop training manual inside high-end luxury boardroom"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
+      {/* How We Work Section */}
       <section className="py-24 md:py-32 bg-[#110E07]/75 backdrop-blur-md border-y border-goldMuted relative z-10">
         <div className="max-w-container-max-width mx-auto px-6 md:px-10 lg:px-20 text-center">
-          <SectionLabel eyebrow="How We Work" />
+          <SectionLabel eyebrow="Execution Excellence" />
           <h2 className="font-display font-semibold text-[clamp(2rem,4vw,3rem)] leading-[1.2] text-white tracking-tight mb-20">
             From Brief to Flawless Delivery
           </h2>
 
           <div className="relative pt-8">
-            {/* Connecting horizontal line */}
             <div className="absolute top-[52px] left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-gold/20 to-transparent hidden md:block" />
 
             <StaggerContainer className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 relative z-10">
@@ -191,22 +160,22 @@ export default function ServicesPage() {
                 {
                   step: "01",
                   title: "Discovery",
-                  desc: "Initial consultation to define your specific linguistic requirements."
+                  desc: "Consultation to establish your specific business objectives and communication environment."
                 },
                 {
                   step: "02",
                   title: "Strategic Match",
-                  desc: "Assignment of subject-matter experts tailored to your industry."
+                  desc: "Sourcing vetted, industry-matched interpreters or trainers with precise domain authority."
                 },
                 {
                   step: "03",
-                  title: "Execution",
-                  desc: "Precise translation or interpretation with multi-layer quality checks."
+                  title: "Logistics & Design",
+                  desc: "Deploying ISO-certified hardware, custom syllabi, and pre-assessments for audit evidence."
                 },
                 {
                   step: "04",
-                  title: "Final Audit",
-                  desc: "Rigorous review and flawless delivery of your final assets."
+                  title: "Execution & Report",
+                  desc: "Delivery accompanied by post-event reports, certification lists, and outcome analytics."
                 }
               ].map((item) => (
                 <FadeIn key={item.step} direction="up" duration={0.5} className="group" data-cursor-text="STEPS">
@@ -231,13 +200,13 @@ export default function ServicesPage() {
         <FadeIn direction="up" duration={0.8}>
           <div className="max-w-3xl mx-auto space-y-6">
             <h2 className="font-display font-semibold text-[clamp(1.75rem,3.5vw,2.75rem)] text-white tracking-tight leading-tight">
-              Need a Tailored Language Solution?
+              Ready to Design Your Language Program?
             </h2>
             <p className="font-body text-sm md:text-base text-muted max-w-xl mx-auto leading-relaxed pb-6">
-              Our linguistic program directors are ready to draft a customized solution for your corporate summit or localization project.
+              Our linguistic program directors and corporate advisors are ready to draft a customized delivery framework for your team or upcoming event.
             </p>
             <Button variant="primary" href="/contact">
-              Request a Quote
+              Request a Consultation
             </Button>
           </div>
         </FadeIn>

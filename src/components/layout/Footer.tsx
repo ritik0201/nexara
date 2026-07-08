@@ -56,7 +56,7 @@ export default function Footer() {
           </h4>
           <ul className="space-y-3 font-body text-sm text-muted">
             <li>
-              <Link href="/services" className="hover:text-gold transition-colors">
+              <Link href="/services/interpretation" className="hover:text-gold transition-colors">
                 Simultaneous Interpretation
               </Link>
             </li>
@@ -66,7 +66,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:text-gold transition-colors">
+              <Link href="/services/corporate-training" className="hover:text-gold transition-colors">
                 Corporate Training
               </Link>
             </li>

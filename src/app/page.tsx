@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import { 
   Globe, 
   Headset, 
@@ -15,12 +15,16 @@ import {
   Cpu, 
   Mic, 
   ArrowRight, 
-  Quote 
+  Quote,
+  Radio,
+  Sparkles,
+  CheckCircle
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import StatCard from "@/components/ui/StatCard";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Card from "@/components/ui/Card";
+import Divider from "@/components/ui/Divider";
 import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -32,6 +36,8 @@ const summitBg = "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?a
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
+  const [interpreterLanguage, setInterpreterLanguage] = useState<"en" | "fr" | "ja" | "ar">("en");
+  const [trainingTab, setTrainingTab] = useState<"compliance" | "cross-cultural" | "leadership">("compliance");
 
   // Hero Text Cascade
   const textCascade: Variants = {
@@ -284,7 +290,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Link
-                  href="/services"
+                  href="/services/interpretation"
                   className="inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-gold hover:text-white transition-colors duration-300"
                 >
                   Learn More <ArrowRight className="w-4 h-4" />
@@ -307,7 +313,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Link
-                  href="/services"
+                  href="/services/corporate-training"
                   className="inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-gold hover:text-white transition-colors duration-300"
                 >
                   Learn More <ArrowRight className="w-4 h-4" />
@@ -317,6 +323,472 @@ export default function Home() {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* Divider */}
+      <Divider width="sm" />
+
+      {/* Showcase Section: Interpretation Console */}
+      <section className="py-24 md:py-32 px-6 md:px-10 lg:px-20 max-w-container-max-width mx-auto relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* Left Column: Information */}
+          <div className="lg:col-span-5 space-y-6">
+            <SectionLabel eyebrow="Real-Time Diplomacy" />
+            <h2 className="font-display font-semibold text-[clamp(2rem,4vw,3.25rem)] leading-[1.2] text-white tracking-tight">
+              Elite G20-Level Simultaneous Interpretation
+            </h2>
+            <p className="font-body text-sm md:text-base text-muted leading-relaxed">
+              Our simultaneous interpreters operate in G20 summits and international trade forums where error is not an option. We deliver seamless real-time voice translation supported by ISO-standard equipment and vetted protocol specialists.
+            </p>
+            <ul className="space-y-3 font-body text-xs md:text-sm text-muted/90 pt-2">
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                Dual-Interpreter fatigue management protocols
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                ISO-standard soundproof interpreter booths on-site
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                Encryption-secured multi-channel receiver systems
+              </li>
+            </ul>
+            <div className="pt-4">
+              <Button variant="secondary" href="/services/interpretation">
+                Explore Interpretation Services &rarr;
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Column: Interactive Console Simulation */}
+          <div className="lg:col-span-7 bg-[#141414] border border-gold/15 p-8 rounded-2xl relative shadow-2xl overflow-hidden group">
+            {/* Ambient gold glow */}
+            <div className="absolute -top-12 -right-12 w-32 h-32 bg-gold/5 rounded-full blur-xl pointer-events-none" />
+            
+            <div className="flex items-center justify-between pb-6 border-b border-gold/10 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
+                <span className="font-body text-[10px] uppercase tracking-widest text-white font-semibold">Live Interpreter Console</span>
+              </div>
+              <span className="font-body text-[9px] uppercase tracking-wider text-gold px-2 py-0.5 bg-gold/10 border border-gold/25 rounded">Active Deck</span>
+            </div>
+
+            {/* Language Selection Buttons */}
+            <div className="grid grid-cols-4 gap-2 mb-6">
+              {[
+                { id: "en", label: "English", color: "hover:border-[#d4af37]/50 active:bg-[#d4af37]/5", activeClass: "border-[#d4af37] text-[#d4af37] bg-[#d4af37]/5" },
+                { id: "fr", label: "French", color: "hover:border-[#38bdf8]/50 active:bg-[#38bdf8]/5", activeClass: "border-[#38bdf8] text-[#38bdf8] bg-[#38bdf8]/5" },
+                { id: "ja", label: "Japanese", color: "hover:border-[#fda4af]/50 active:bg-[#fda4af]/5", activeClass: "border-[#fda4af] text-[#fda4af] bg-[#fda4af]/5" },
+                { id: "ar", label: "Arabic", color: "hover:border-[#34d399]/50 active:bg-[#34d399]/5", activeClass: "border-[#34d399] text-[#34d399] bg-[#34d399]/5" }
+              ].map((lang) => {
+                const isActive = interpreterLanguage === lang.id;
+                return (
+                  <button
+                    key={lang.id}
+                    onClick={() => setInterpreterLanguage(lang.id as "en" | "fr" | "ja" | "ar")}
+                    className={`px-3 py-2 border rounded font-body text-[10px] uppercase tracking-widest transition-all duration-300 cursor-pointer ${
+                      isActive ? lang.activeClass : "border-gold/10 text-muted " + lang.color
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Dynamic Waveform component */}
+            <div className="relative w-full h-32 flex items-center justify-center bg-black/40 border border-gold/10 rounded-lg overflow-hidden mb-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/[0.01] to-transparent pointer-events-none" />
+              
+              <svg className="w-full h-full" viewBox="0 0 400 100" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="wave-grad-en" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#d4af37" stopOpacity={0.02} />
+                    <stop offset="50%" stopColor="#d4af37" stopOpacity={0.8} />
+                    <stop offset="100%" stopColor="#d4af37" stopOpacity={0.02} />
+                  </linearGradient>
+                  <linearGradient id="wave-grad-fr" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#38bdf8" stopOpacity={0.02} />
+                    <stop offset="50%" stopColor="#38bdf8" stopOpacity={0.85} />
+                    <stop offset="100%" stopColor="#38bdf8" stopOpacity={0.02} />
+                  </linearGradient>
+                  <linearGradient id="wave-grad-ja" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#fda4af" stopOpacity={0.02} />
+                    <stop offset="50%" stopColor="#fda4af" stopOpacity={0.7} />
+                    <stop offset="100%" stopColor="#fda4af" stopOpacity={0.02} />
+                  </linearGradient>
+                  <linearGradient id="wave-grad-ar" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#34d399" stopOpacity={0.02} />
+                    <stop offset="50%" stopColor="#34d399" stopOpacity={0.8} />
+                    <stop offset="100%" stopColor="#34d399" stopOpacity={0.02} />
+                  </linearGradient>
+                </defs>
+                
+                {/* Simulated sine paths changing dynamically based on current language */}
+                {interpreterLanguage === "en" && (
+                  <>
+                    <motion.path
+                      d="M0,50 Q100,20 200,50 T400,50"
+                      fill="none"
+                      stroke="url(#wave-grad-en)"
+                      strokeWidth="2.5"
+                      animate={{
+                        d: [
+                          "M0,50 Q50,35 100,50 T200,50 T300,50 T400,50",
+                          "M0,50 Q50,65 100,50 T200,50 T300,50 T400,50",
+                          "M0,50 Q50,35 100,50 T200,50 T300,50 T400,50"
+                        ]
+                      }}
+                      transition={{ repeat: Infinity, duration: 2.0, ease: "easeInOut" }}
+                    />
+                    <motion.path
+                      d="M0,50 Q100,80 200,50 T400,50"
+                      fill="none"
+                      stroke="url(#wave-grad-en)"
+                      strokeWidth="1"
+                      strokeDasharray="4 4"
+                      opacity="0.4"
+                      animate={{
+                        d: [
+                          "M0,50 Q50,60 100,50 T200,50 T300,50 T400,50",
+                          "M0,50 Q50,40 100,50 T200,50 T300,50 T400,50",
+                          "M0,50 Q50,60 100,50 T200,50 T300,50 T400,50"
+                        ]
+                      }}
+                      transition={{ repeat: Infinity, duration: 3.0, ease: "easeInOut" }}
+                    />
+                  </>
+                )}
+
+                {interpreterLanguage === "fr" && (
+                  <>
+                    <motion.path
+                      d="M0,50 Q100,20 200,50 T400,50"
+                      fill="none"
+                      stroke="url(#wave-grad-fr)"
+                      strokeWidth="2.5"
+                      animate={{
+                        d: [
+                          "M0,50 Q40,25 80,50 T160,50 T240,50 T320,50 T400,50",
+                          "M0,50 Q40,75 80,50 T160,50 T240,50 T320,50 T400,50",
+                          "M0,50 Q40,25 80,50 T160,50 T240,50 T320,50 T400,50"
+                        ]
+                      }}
+                      transition={{ repeat: Infinity, duration: 1.3, ease: "easeInOut" }}
+                    />
+                    <motion.path
+                      d="M0,50 Q100,80 200,50 T400,50"
+                      fill="none"
+                      stroke="url(#wave-grad-fr)"
+                      strokeWidth="1"
+                      strokeDasharray="3 3"
+                      opacity="0.4"
+                      animate={{
+                        d: [
+                          "M0,50 Q40,65 80,50 T160,50 T240,50 T320,50 T400,50",
+                          "M0,50 Q40,35 80,50 T160,50 T240,50 T320,50 T400,50",
+                          "M0,50 Q40,65 80,50 T160,50 T240,50 T320,50 T400,50"
+                        ]
+                      }}
+                      transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+                    />
+                  </>
+                )}
+
+                {interpreterLanguage === "ja" && (
+                  <>
+                    <motion.path
+                      d="M0,50 Q100,20 200,50 T400,50"
+                      fill="none"
+                      stroke="url(#wave-grad-ja)"
+                      strokeWidth="2"
+                      animate={{
+                        d: [
+                          "M0,50 Q60,40 120,50 T240,50 T360,50 T400,50",
+                          "M0,50 Q60,60 120,50 T240,50 T360,50 T400,50",
+                          "M0,50 Q60,40 120,50 T240,50 T360,50 T400,50"
+                        ]
+                      }}
+                      transition={{ repeat: Infinity, duration: 3.0, ease: "easeInOut" }}
+                    />
+                    <motion.path
+                      d="M0,50 Q100,80 200,50 T400,50"
+                      fill="none"
+                      stroke="url(#wave-grad-ja)"
+                      strokeWidth="1"
+                      opacity="0.3"
+                      animate={{
+                        d: [
+                          "M0,50 Q60,55 120,50 T240,50 T360,50 T400,50",
+                          "M0,50 Q60,45 120,50 T240,50 T360,50 T400,50",
+                          "M0,50 Q60,55 120,50 T240,50 T360,50 T400,50"
+                        ]
+                      }}
+                      transition={{ repeat: Infinity, duration: 4.0, ease: "easeInOut" }}
+                    />
+                  </>
+                )}
+
+                {interpreterLanguage === "ar" && (
+                  <>
+                    <motion.path
+                      d="M0,50 Q100,20 200,50 T400,50"
+                      fill="none"
+                      stroke="url(#wave-grad-ar)"
+                      strokeWidth="2.5"
+                      animate={{
+                        d: [
+                          "M0,50 Q45,30 90,50 T180,50 T270,50 T360,50 T400,50",
+                          "M0,50 Q45,70 90,50 T180,50 T270,50 T360,50 T400,50",
+                          "M0,50 Q45,30 90,50 T180,50 T270,50 T360,50 T400,50"
+                        ]
+                      }}
+                      transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+                    />
+                    <motion.path
+                      d="M0,50 Q100,80 200,50 T400,50"
+                      fill="none"
+                      stroke="url(#wave-grad-ar)"
+                      strokeWidth="1"
+                      strokeDasharray="4 4"
+                      opacity="0.4"
+                      animate={{
+                        d: [
+                          "M0,50 Q45,60 90,50 T180,50 T270,50 T360,50 T400,50",
+                          "M0,50 Q45,40 90,50 T180,50 T270,50 T360,50 T400,50",
+                          "M0,50 Q45,60 90,50 T180,50 T270,50 T360,50 T400,50"
+                        ]
+                      }}
+                      transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+                    />
+                  </>
+                )}
+              </svg>
+
+              {/* Console overlays */}
+              <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-[10px] font-body tracking-wider text-muted/70">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+                  <span>ACTIVE AUDIO: {interpreterLanguage.toUpperCase()}</span>
+                </div>
+                <div>SIGNAL FLOW: LATENCY &lt; 8ms</div>
+              </div>
+            </div>
+
+            {/* Simulated Live Transcription Box */}
+            <div className="bg-black/60 border border-gold/10 p-5 rounded-lg min-h-[90px] flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={interpreterLanguage}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="font-body text-xs text-white/90 leading-relaxed font-light italic"
+                >
+                  {interpreterLanguage === "en" && (
+                    "\"We are honored to welcome delegations from twenty-four nations to this summit. Our goal today is to coordinate multilateral frameworks and establish protocol standards for global trade.\""
+                  )}
+                  {interpreterLanguage === "fr" && (
+                    "\"Nous sommes honorés d'accueillir des délégations de vingt-quatre pays à ce sommet. Notre objectif est de coordonner les cadres multilatéraux et d'établir des normes de protocole.\""
+                  )}
+                  {interpreterLanguage === "ja" && (
+                    "\"このサミットに24カ国からの代表団をお迎えできることを光栄に思います。本日の目標は、多国間枠組みを調整し、世界貿易のプロトコル基準を確立することです。\""
+                  )}
+                  {interpreterLanguage === "ar" && (
+                    "\"يشرفنا أن نرحب بوفود من أربع وعشرين دولة في هذه القمة. هدفنا اليوم هو تنسيق الأطر متعددة الأطراف ووضع معايير البروتوكول للتجارة العالمية.\""
+                  )}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <Divider width="sm" />
+
+      {/* Showcase Section: Corporate Training Curriculum */}
+      <section className="py-24 md:py-32 px-6 md:px-10 lg:px-20 max-w-container-max-width mx-auto relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* Left Column: Interactive Tab Dialer */}
+          <div className="lg:col-span-7 order-2 lg:order-1 bg-[#141414] border border-gold/15 p-8 rounded-2xl relative shadow-2xl overflow-hidden">
+            <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-gold/5 rounded-full blur-xl pointer-events-none" />
+
+            <div className="flex items-center justify-between pb-6 border-b border-gold/10 mb-6">
+              <div className="flex items-center gap-3 text-gold">
+                <Presentation className="w-5 h-5" />
+                <span className="font-body text-[10px] uppercase tracking-widest text-white font-semibold">Corporate Curriculum segments</span>
+              </div>
+            </div>
+
+            {/* Pillar selection tabs */}
+            <div className="flex flex-col sm:flex-row gap-2 mb-8">
+              {[
+                { id: "compliance", label: "Compliance & Statutory", isFeatured: false },
+                { id: "cross-cultural", label: "Cross-Cultural Strategy", isFeatured: true },
+                { id: "leadership", label: "Executive Leadership", isFeatured: false }
+              ].map((tab) => {
+                const isActive = trainingTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setTrainingTab(tab.id as "compliance" | "cross-cultural" | "leadership")}
+                    className={`flex-1 px-4 py-3 rounded border font-body text-[10px] uppercase tracking-widest transition-all duration-300 flex items-center justify-between cursor-pointer ${
+                      isActive 
+                        ? tab.isFeatured
+                          ? "bg-gold text-black border-transparent font-bold"
+                          : "border-gold text-gold bg-gold/5 font-semibold"
+                        : "border-gold/10 text-muted hover:text-white"
+                    }`}
+                  >
+                    <span>{tab.label}</span>
+                    {tab.isFeatured && (
+                      <span className={`text-[8px] px-1 py-0.5 rounded font-bold uppercase tracking-wider ${
+                        isActive ? "bg-black text-gold" : "bg-gold/10 text-gold border border-gold/25"
+                      }`}>
+                        Unique
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Curriculum Detail Container */}
+            <div className="min-h-[220px] relative">
+              <AnimatePresence mode="wait">
+                {trainingTab === "compliance" && (
+                  <motion.div
+                    key="compliance"
+                    initial={{ opacity: 0, x: -15 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 15 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-4"
+                  >
+                    <h4 className="font-display font-medium text-lg text-white">Statutory & Compliance Workshops</h4>
+                    <p className="font-body text-xs text-muted leading-relaxed">
+                      Legally compliant corporate modules designed to secure your organization and fulfill audit expectations.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                      {[
+                        "Statutory POSH employee seminars",
+                        "Internal Committee (IC) briefing",
+                        "Anti-Bribery & Corruption audits",
+                        "Data Protection & DPDP Compliance"
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-xs text-muted/90">
+                          <CheckCircle className="w-3.5 h-3.5 text-gold shrink-0" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {trainingTab === "cross-cultural" && (
+                  <motion.div
+                    key="cross-cultural"
+                    initial={{ opacity: 0, x: -15 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 15 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-4"
+                  >
+                    <div className="flex items-center gap-1.5 text-gold">
+                      <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+                      <span className="font-body text-[8px] uppercase tracking-widest font-bold">Nexara Differentiator</span>
+                    </div>
+                    <h4 className="font-display font-medium text-lg text-white">Cross-Cultural Diplomacy & Languages</h4>
+                    <p className="font-body text-xs text-muted leading-relaxed">
+                      Our signature training program. Empowers global outbound delegations, C-suite executives, and sales representatives with cultural IQ and business fluency.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                      {[
+                        "Cross-cultural global team skilling",
+                        "Business etiquette (Europe/APAC/ME)",
+                        "Foreign language coaching",
+                        "Outbound delegation briefing"
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-xs text-white">
+                          <CheckCircle className="w-3.5 h-3.5 text-gold shrink-0" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {trainingTab === "leadership" && (
+                  <motion.div
+                    key="leadership"
+                    initial={{ opacity: 0, x: -15 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 15 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-4"
+                  >
+                    <h4 className="font-display font-medium text-lg text-white">Executive & Management Leadership</h4>
+                    <p className="font-body text-xs text-muted leading-relaxed">
+                      Strategic leadership coaching for supervisors, mid-managers, and C-suite facilitators to drive performance.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                      {[
+                        "First-time manager onboarding",
+                        "Mid & Senior Leadership clinics",
+                        "Succession planning workshops",
+                        "Delegation & Coaching frameworks"
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-xs text-muted/90">
+                          <CheckCircle className="w-3.5 h-3.5 text-gold shrink-0" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* Right Column: Text Block */}
+          <div className="lg:col-span-5 order-1 lg:order-2 space-y-6 lg:pl-12">
+            <SectionLabel eyebrow="Strategic Skilling" />
+            <h2 className="font-display font-semibold text-[clamp(2rem,4vw,3.25rem)] leading-[1.2] text-white tracking-tight">
+              Statutory &amp; Custom Corporate Training
+            </h2>
+            <p className="font-body text-sm md:text-base text-muted leading-relaxed">
+              We design and execute specialized training programs that go beyond slide presentations. Every program features tailored handbooks, pre/post learning metrics, and branded certificates.
+            </p>
+            <ul className="space-y-3 font-body text-xs md:text-sm text-muted/90 pt-2">
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                Facilitators with 10-25 years industry experience
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                Statutory POSH and Code of Conduct audit compliance
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                Custom workbooks and assessment data included
+              </li>
+            </ul>
+            <div className="pt-4">
+              <Button variant="secondary" href="/services/corporate-training">
+                Explore Corporate Training &rarr;
+              </Button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Divider */}
+      <Divider width="sm" />
 
       {/* 4. WHY CHOOSE US (Asymmetric, reversed image/text) */}
       <section className="py-24 md:py-32 px-6 md:px-10 lg:px-20 max-w-container-max-width mx-auto">

@@ -5,13 +5,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Button from "../ui/Button";
 import { cn } from "@/lib/utils";
 
-const links = [
+interface LinkItem {
+  name: string;
+  href: string;
+  submenu?: { name: string; href: string }[];
+}
+
+const links: LinkItem[] = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
+  {
+    name: "Services",
+    href: "/services",
+    submenu: [
+      { name: "Overview", href: "/services" },
+      { name: "Interpretation Services", href: "/services/interpretation" },
+      { name: "Corporate Training", href: "/services/corporate-training" },
+    ],
+  },
   { name: "About", href: "/about" },
   { name: "Industries", href: "/industries" },
   { name: "Languages", href: "/languages" },
@@ -23,6 +37,7 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
@@ -64,6 +79,43 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-8">
             {links.map((link) => {
+              if (link.submenu) {
+                const isActive = pathname.startsWith(link.href);
+                return (
+                  <div key={link.name} className="relative group/dropdown py-4">
+                    <button
+                      className={cn(
+                        "flex items-center gap-1 text-xs uppercase tracking-[0.15em] font-body transition-colors duration-300 pb-1 cursor-pointer focus:outline-none",
+                        isActive ? "text-gold" : "text-muted hover:text-white"
+                      )}
+                    >
+                      {link.name}
+                      <ChevronDown className="w-3 h-3 transition-transform duration-300 group-hover/dropdown:rotate-180" />
+                    </button>
+                    
+                    {/* Dropdown Menu */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 opacity-0 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:pointer-events-auto transition-all duration-300 z-50">
+                      <div className="bg-[#141414] border border-gold/15 p-2 rounded shadow-2xl backdrop-blur-xl flex flex-col gap-1">
+                        {link.submenu.map((subitem) => {
+                          const isSubActive = pathname === subitem.href;
+                          return (
+                            <Link
+                              key={subitem.name}
+                              href={subitem.href}
+                              className={cn(
+                                "px-4 py-2.5 text-[10px] uppercase tracking-widest font-body rounded transition-all duration-200 text-left hover:bg-gold/10 hover:text-white block",
+                                isSubActive ? "text-gold bg-gold/5" : "text-muted"
+                              )}
+                            >
+                              {subitem.name}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
               const isActive = pathname === link.href;
               return (
                 <Link
@@ -122,6 +174,54 @@ export default function Navbar() {
               className="flex flex-col items-center gap-8 w-full max-w-sm"
             >
               {links.map((link) => {
+                if (link.submenu) {
+                  const isActive = pathname.startsWith(link.href);
+                  return (
+                    <div key={link.name} className="w-full flex flex-col items-center animate-none">
+                      <button
+                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                        className={cn(
+                          "flex items-center gap-2 text-xl uppercase tracking-[0.2em] font-body transition-colors duration-300 focus:outline-none",
+                          isActive ? "text-gold" : "text-muted hover:text-white"
+                        )}
+                      >
+                        {link.name}
+                        <ChevronDown className={cn("w-5 h-5 transition-transform duration-300", mobileServicesOpen && "rotate-180")} />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {mobileServicesOpen && (
+                          <motion.div
+                            initial={shouldReduceMotion ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={shouldReduceMotion ? { height: "auto", opacity: 0 } : { height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="overflow-hidden flex flex-col items-center gap-4 mt-4 w-full bg-surface/30 py-3 rounded border border-gold/5"
+                          >
+                            {link.submenu.map((subitem) => {
+                              const isSubActive = pathname === subitem.href;
+                              return (
+                                <Link
+                                  key={subitem.name}
+                                  href={subitem.href}
+                                  onClick={() => {
+                                    setIsOpen(false);
+                                    setMobileServicesOpen(false);
+                                  }}
+                                  className={cn(
+                                    "text-sm uppercase tracking-[0.15em] font-body transition-colors duration-300 py-1",
+                                    isSubActive ? "text-gold font-semibold" : "text-muted hover:text-white"
+                                  )}
+                                >
+                                  {subitem.name}
+                                </Link>
+                              );
+                            })}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
                 const isActive = pathname === link.href;
                 return (
                   <Link
