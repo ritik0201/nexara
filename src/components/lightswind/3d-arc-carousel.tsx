@@ -179,6 +179,8 @@ export const ThreeDArcCarousel: React.FC<ThreeDArcCarouselProps> = ({
                   transformOrigin: `50% ${radius}px`,
                   transform: `rotate(${cardRotation}deg)`,
                   zIndex: zIndex,
+                  opacity: distance > 2 ? 0 : 1,
+                  pointerEvents: distance > 2 ? "none" : "auto",
                 }}
               >
                 {/* Visual Glow overlay on active card */}

@@ -65,6 +65,36 @@ const interpretationShowcaseItems = [
     title: "Scientific & Medical Conferences",
     description: "Subject-matter expert interpreters fluent in complex technical, medical, and scientific nomenclature.",
     image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    tag: "Legal Proceedings",
+    title: "International Arbitration Panels",
+    description: "Highly-vetted judicial interpreters facilitating complex legal arguments and sworn testimony.",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    tag: "Defense & Security",
+    title: "Aerospace & Defense Briefings",
+    description: "Top-secret cleared linguists handling critical aerospace, security, and military intelligence translations.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    tag: "FinTech & Banking",
+    title: "Sovereign Wealth Summits",
+    description: "Sovereign-level precision translation for cross-border investments and central bank policy alignment.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    tag: "Global Media",
+    title: "Live Entertainment Broadcasts",
+    description: "Zero-latency simultaneous audio streams for global award ceremonies and cultural events.",
+    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    tag: "Virtual Platforms",
+    title: "Global RSI Hub Operations",
+    description: "Cloud-based remote simultaneous interpretation connecting panel speakers from 10+ time zones.",
+    image: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80",
   }
 ];
 
