@@ -28,11 +28,45 @@ import Divider from "@/components/ui/Divider";
 import FadeIn from "@/components/motion/FadeIn";
 import StaggerContainer from "@/components/motion/StaggerContainer";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { ThreeDArcCarousel } from "@/components/lightswind/3d-arc-carousel";
 
 const heroBg = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80";
 const interpreterPortrait = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80";
 const boardroomBg = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80";
 const summitBg = "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80";
+
+const interpretationShowcaseItems = [
+  {
+    tag: "Diplomatic Summits",
+    title: "G20 Summit Delegation",
+    description: "Whisper-quiet simultaneous translation and secure audio routing for bilateral delegation meetings.",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    tag: "Global Commerce",
+    title: "Multinational Press Panels",
+    description: "Seamless real-time broadcasting and media interpretation across up to 40 channels simultaneously.",
+    image: "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    tag: "Secure Protocol",
+    title: "Bilateral Negotiations",
+    description: "Vetted protocol specialists delivering nuance-accurate voice translation in secure, high-stakes environments.",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    tag: "Executive Leadership",
+    title: "C-Suite Corporate Forums",
+    description: "High-latency-free translation with remote hub setups for cross-border mergers and acquisitions.",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    tag: "Specialized Panels",
+    title: "Scientific & Medical Conferences",
+    description: "Subject-matter expert interpreters fluent in complex technical, medical, and scientific nomenclature.",
+    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+  }
+];
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
@@ -234,6 +268,7 @@ export default function Home() {
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
+                  unoptimized
                 />
               </div>
             </div>
@@ -604,6 +639,23 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Divider */}
+      <Divider width="sm" />
+
+      {/* Interactive 3D Arc Carousel Showcase */}
+      <section className="py-24 md:py-32 px-6 md:px-10 lg:px-20 max-w-container-max-width mx-auto relative overflow-hidden">
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <SectionLabel eyebrow="Global Deployments" />
+          <h2 className="font-display font-semibold text-[clamp(2rem,3.5vw,3rem)] leading-[1.2] text-white tracking-tight">
+            Elite Deployment Environments
+          </h2>
+          <p className="font-body text-sm md:text-base text-muted leading-relaxed max-w-2xl mx-auto">
+            Experience where our vetted simultaneous interpreters operate. From G20 summits to high-profile corporate boardrooms, precision is our only standard.
+          </p>
+        </div>
+        <ThreeDArcCarousel items={interpretationShowcaseItems} autoPlay={true} autoPlayInterval={5000} />
       </section>
 
       {/* Divider */}
